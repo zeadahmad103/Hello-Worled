@@ -2,11 +2,9 @@ void main() {
   int x = 3;
   var y = 20;
   print(x * y);
+  myfunction();
+}
 
-  int i;
-  for (int i = 0; i < 20; i++) {
-    if (i % 2 == 0) {
-      print(i);
-    }
-  }
+void myfunction() {
+  print("Car is Moving");
 }
