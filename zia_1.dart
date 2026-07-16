@@ -125,8 +125,44 @@
 
 // }
 
+abstract class Person {
+  String name;
+
+  Person(this.name);
+
+  void work();
+}
+
+mixin Drive {
+  void drive() {
+    print("Driving...");
+  }
+}
+
+class Doctor extends Person with Drive {
+  Doctor(String name) : super(name);
+
+  @override
+  void work() {
+    print("$name is treating patients");
+  }
+}
+
+class Teacher extends Person {
+  Teacher(String name) : super(name);
+
+  @override
+  void work() {
+    print("$name is teaching students");
+  }
+}
+
 void main() {
-  List<int> numbers = [1, 2, 3, 4, 5];
-  var result = numbers.map((n) => n * 2).toList();
-  print(result);
+  Person doctor = Doctor("Ahmed");
+  Person teacher = Teacher("Sara");
+
+  doctor.work();
+  teacher.work();
+
+  (doctor as Doctor).drive();
 }
